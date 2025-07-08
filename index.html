@@ -124,12 +124,12 @@
       font-size: 0.9rem;
     }
   </style>
-  <!-- رابط أيقونات Font Awesome -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- زر العودة الجديد -->
-  <button class="back-btn" onclick="window.location.href='index.html'">
+
+  <button class="back-btn" onclick="goBack()">
     <i class="fas fa-arrow-right"></i> العودة
   </button>
 
@@ -163,6 +163,15 @@
   <audio id="failSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" preload="auto"></audio>
 
   <script>
+    // دالة العودة إلى الصفحة السابقة
+    function goBack() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html'; // صفحة افتراضية إذا لم يكن هناك سجل تصفح
+      }
+    }
+
     const board = document.getElementById('gameBoard');
     const statusEl = document.getElementById('status');
     const scoreEl = document.getElementById('score');
